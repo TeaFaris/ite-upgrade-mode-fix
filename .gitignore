@@ -1,0 +1,4 @@
+# firmware dumps belong to you (and ASUS), never commit them
+*.bin
+*.rom
+__pycache__/

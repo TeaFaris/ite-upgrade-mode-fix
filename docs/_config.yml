@@ -1,0 +1,9 @@
+title: ASUS ROG keyboard stuck in ITE Upgrade Mode (048D:89DB)
+description: ASUS ROG laptop keyboard dead even in BIOS, 048D:89DB ITE Upgrade Mode. Why it happens and how to fix it on Linux and Windows.
+lang: en
+url: https://teafaris.github.io
+baseurl: /ite-upgrade-mode-fix
+theme: jekyll-theme-cayman
+plugins:
+  - jekyll-seo-tag
+  - jekyll-sitemap

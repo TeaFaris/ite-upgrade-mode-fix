@@ -1,0 +1,87 @@
+---
+---
+
+@import "{{ site.theme }}";
+
+$bg: #0c0c0e;
+$panel: #151518;
+$line: #2a2a30;
+$text: #d4d4d8;
+$muted: #8b8b94;
+$red: #ff2e45;
+$red-soft: #ff6b7c;
+
+html { color-scheme: dark; }
+
+body {
+  background-color: $bg;
+  color: $text;
+}
+
+.page-header {
+  background-color: #120406;
+  background-image: linear-gradient(120deg, #3b050c 0%, #120406 55%, #0c0c0e 100%);
+  border-bottom: 1px solid #3b050c;
+}
+
+.project-name { color: #fff; }
+.project-tagline { color: #c9c9cf; opacity: 1; }
+
+.btn {
+  color: #fff;
+  background-color: rgba(255, 46, 69, 0.12);
+  border-color: rgba(255, 46, 69, 0.45);
+
+  &:hover {
+    color: #fff;
+    background-color: rgba(255, 46, 69, 0.25);
+    border-color: rgba(255, 46, 69, 0.7);
+  }
+}
+
+.main-content {
+  color: $text;
+
+  h1, h2, h3, h4, h5, h6 { color: #fff; }
+  h1, h2 { border-bottom: 1px solid $line; padding-bottom: 0.3em; }
+
+  a { color: $red-soft; }
+  a:hover { color: $red; }
+
+  strong { color: #fff; }
+
+  code {
+    color: #f0f0f3;
+    background-color: #1d1d22;
+    border-radius: 0.3rem;
+  }
+
+  pre {
+    color: #e6e6ea;
+    background-color: $panel;
+    border: 1px solid $line;
+
+    code { background-color: transparent; }
+  }
+
+  blockquote {
+    color: $muted;
+    border-left-color: $red;
+  }
+
+  hr { background-color: $line; height: 1px; }
+
+  table {
+    th { color: #fff; }
+    th, td { border-color: $line; }
+    tr:nth-child(even) { background-color: rgba(255, 255, 255, 0.025); }
+  }
+
+  .site-footer {
+    border-top-color: $line;
+
+    .site-footer-owner, .site-footer-credits { color: $muted; }
+  }
+}
+
+::selection { background: rgba(255, 46, 69, 0.35); color: #fff; }

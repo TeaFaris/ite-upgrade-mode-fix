@@ -1,4 +1,5 @@
-# firmware dumps belong to you (and ASUS), never commit them
+# your own dumps stay local, only cleaned ones go into firmware/
 *.bin
 *.rom
+!firmware/**/*.bin
 __pycache__/

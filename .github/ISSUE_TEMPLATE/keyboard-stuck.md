@@ -13,7 +13,7 @@ labels: report
 ```
 ```
 
-**`itefix info <your dump>` output** (text only, please don't attach the .bin, it's ASUS firmware):
+**`itefix info <your dump>` output:**
 ```
 ```
 

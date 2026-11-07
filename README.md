@@ -64,7 +64,7 @@ it's one python file, no dependencies. the Windows installer gets Python with wi
      sudo itefix refresh --ref mykeyboard.bin
      ```
      then wait up to 10 minutes or power off and on. that's what fixed mine.
-   - **app A bad** (B OK or both bad): don't write anything. open an issue with the `itefix info` text output. NOT the .bin file, that's ASUS firmware.
+   - **app A bad** (B OK or both bad): don't write your own dump back. check [firmware/](firmware/) for a clean dump of your model and use that one (`refresh --ref` for the same version, `flash` for another one). nothing for your model yet: open an issue with the `itefix info` output, maybe someone has it.
    - **slot table not found**: different controller generation (for example ITE8259 in the 2025 Flow Z13). itefix won't write to it. issue please, with the info output.
 5. **Linux bonus, auto repair next time:**
    ```
@@ -99,6 +99,22 @@ honest answer: it writes firmware into a chip, so there is some risk. this is wh
 
 technical details (flash map, checksum, boot flow, protocol): [docs/how-it-works.md](docs/how-it-works.md)
 
+## which laptops does itefix work on
+
+**tested on real hardware:** ROG Zephyrus G16 **GU605MI** (2024, ITE8252, firmware .415). the other GU605M variants (GU605MV, GU605MY, GU605MZ, GU605MU) are most likely the same.
+
+**should work, not tested by me:** same ITE8252 chip and same bootloader. `itefix info` reads all 47 official ASUS keyboard images for these and both checksums pass, and kbfw already brought a G614PP back with the same protocol:
+
+ROG Strix G16 / G18 / SCAR: G614FM, G614FP, G614FR, G614JI, G614JJ, G614JU, G614JV, G614JZ, G614PM, G614PP, G614PR, G615JM, G615JMR, G615JPR, G615LM, G615LP, G615LR, G615LW, G634JY, G634JZ, G635LR, G635LW, G635LX, G713PI, G713PU, G713PV, G733PY, G733PZ, G814FM, G814FP, G814JI, G814JU, G814JV, G814JZ, G814PM, G814PP, G815JMR, G815JPR, G815LM, G815LP, G815LR, G815LW, G834JY, G834JZ, G835LR, G835LW, G835LX
+
+on these you can also `itefix flash` the official image from the ASUS "ROG Keyboard Firmware Update" package for your model, handy on Linux where the ASUS tool doesn't run.
+
+**not supported:** the ITE8259 platform: ROG Flow Z13 GZ302 (2025), and going by the Reddit post the Zephyrus M16 GU603ZW. different flash layout, itefix doesn't recognize it and refuses to write, nothing breaks. older GL703VD / GL502VMK: unknown.
+
+## firmware in this repo
+
+[firmware/](firmware/) has clean keyboard controller dumps, right now GU605 .415 from my laptop. **if itefix fixed your keyboard, send me your dump**: `itefix info` it, zip it, open an issue with the "share a dump" template and attach the zip. the next person with your model won't have to wait for ASUS.
+
 ## laptops with the same 048D:89DB symptom
 
 | model | source | what helped |
@@ -125,4 +141,4 @@ if yours is not here, open an issue, I'll add it.
 
 ## license
 
-MIT, see [LICENSE](LICENSE). there is no ASUS firmware in this repo and there won't be. your dump stays with you.
+MIT for the code, see [LICENSE](LICENSE). the dumps in firmware/ are ASUS firmware read out of the laptops' own chips, shared only so people can repair their own hardware.

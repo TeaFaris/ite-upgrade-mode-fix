@@ -6,13 +6,15 @@ clean dumps of the keyboard controller, one per model and firmware version. use 
 
 | model | file | firmware | chip | app A | app B | sha256 |
 |---|---|---|---|---|---|---|
-| ROG Zephyrus G16 GU605MI (2024) | [GU605/FGA00000.GU605.415.bin](GU605/FGA00000.GU605.415.bin) | FGA00000.GU605 .415 | ITE8252 | OK | OK | `899e35fea3dc0d56f41008e36af91cac68aff3ac2a76a2662cbd5ff93c1aa7bc` |
+| ROG Zephyrus G16 GU605MI (2024) | [GU605/FGA00000.GU605.415.bin](GU605/FGA00000.GU605.415.bin) | FGA00000.GU605 .415 | ITE8252 | OK | broken on purpose, see below | `2cba485d89716781611f12d935e2a6d0c6699226c65ea6881f5ef52c0baa7dc7` |
 
 ## GU605 .415
 
-dumped from my own GU605MI on 2026-11-07 in ISP mode, two passes, identical. the raw dump had two leaked bits in app B, I fixed them here (`0x36C60` 20 -> 00, `0x2962A` 3E -> 2E, both found by comparing B with A), now both copies pass the checksum. app A is untouched, it's exactly what fixed my keyboard.
+dumped from my own GU605MI on 2026-11-07 in ISP mode, two passes, identical. app A is exactly what fixed my keyboard.
 
-how to use it:
+app B is left as it was in the dump: two leaked bits, bad checksum. I could guess which bits (one of them for sure), but a checksum match doesn't prove the guess, and a wrong B that still passes the checksum is worse than a broken one. with B broken the bootloader can only ever run A, and if A dies the chip goes back to 048D:89DB where you can flash it again. so only app A from this file is used, itefix refuses to write a slot whose checksum is bad.
+
+how to use it: easiest is `sudo itefix fix` (Windows: `itefix fix`), it downloads this file by itself when your own app A is broken. by hand:
 
 ```
 curl -fsSLO https://github.com/TeaFaris/ite-upgrade-mode-fix/raw/main/firmware/GU605/FGA00000.GU605.415.bin
@@ -36,7 +38,9 @@ I'll check it and add it here.
 
 чистые дампы контроллера клавы, по одному на модель и версию прошивки. нужны если твой собственный дамп уже битый (в `itefix info` у app A checksum BAD).
 
-GU605 .415 я сдампил со своего GU605MI 7 ноября 2026 в режиме обновления, два прохода, одинаковые. в сыром дампе в копии B было два утёкших бита, тут я их исправил (`0x36C60` 20 -> 00, `0x2962A` 3E -> 2E, нашёл сравнением B с A), теперь обе копии проходят проверку. копия A не тронута, это ровно то, что починило мою клаву.
+GU605 .415 я сдампил со своего GU605MI 7 ноября 2026 в режиме обновления, два прохода, одинаковые. копия A это ровно то, что починило мою клаву.
+
+копию B я оставил как была в дампе: два утёкших бита, контрольная сумма не сходится. какие биты утекли можно угадать (один точно), но сошедшаяся сумма догадку не доказывает, а неправильная B с правильной суммой хуже битой. пока B битая, загрузчик может запустить только A, а если A умрёт, чип вернётся в 048D:89DB и его можно перешить. поэтому из этого файла используется только A, слот с битой суммой itefix писать отказывается.
 
 как использовать: команды выше. `refresh` работает если у тебя та же версия .415. если itefix скажет что разница не похожа на утечку, значит у тебя другая версия, тогда `sudo itefix flash FGA00000.GU605.415.bin`. загрузчик и блок обновления itefix всё равно сверяет, если не совпадают, писать не будет.
 

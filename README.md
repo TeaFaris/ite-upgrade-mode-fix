@@ -1,6 +1,6 @@
 # ASUS ROG keyboard dead, stuck in "ITE Upgrade Mode" (048D:89DB)? How I fixed mine
 
-[Русская версия](README.ru.md)
+[Русская версия](README.ru.md) | **not into computers? [simple step by step guide](GUIDE.md)**
 
 so the built-in keyboard on my ASUS ROG Zephyrus G16 (GU605MI) died. not a few keys, the whole thing, even in BIOS. touchpad and power button still worked. on Linux `lsusb` showed this
 
@@ -47,7 +47,14 @@ irm https://raw.githubusercontent.com/TeaFaris/ite-upgrade-mode-fix/main/install
 itefix status
 ```
 
-it's one python file, no dependencies. the Windows installer gets Python with winget if you don't have it.
+then the easy way, one command that does everything (backup, picks the right firmware, asks before writing):
+
+```
+sudo itefix fix        # Linux
+itefix fix             # Windows
+```
+
+it's one python file, no dependencies. the Windows installer gets Python with winget if you don't have it. below is what `fix` does step by step, if you want to do it by hand.
 
 ## what to do if you have this
 

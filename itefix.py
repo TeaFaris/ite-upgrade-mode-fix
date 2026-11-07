@@ -679,7 +679,132 @@ def cmd_auto(a):
     return cmd_refresh(a)
 
 
-UDEV = 'ACTION=="add", SUBSYSTEM=="hidraw", ATTRS{idVendor}=="048d", ATTRS{idProduct}=="89db", ' \
+REPO = "TeaFaris/ite-upgrade-mode-fix"
+FW_BASE = f"https://raw.githubusercontent.com/{REPO}/main/firmware/"
+
+
+def chip_firmware(img):
+    """('GU605', '415') from the FGA name stored in the chip, or (None, None)"""
+    for _, name in strings_at(img, b"FGA"):
+        parts = [p.strip() for p in name.split(".")]
+        if len(parts) == 3 and parts[1] and parts[2].isdigit():
+            return parts[1], parts[2]
+    return None, None
+
+
+def user_home():
+    """home of the real user, also under sudo"""
+    if sys.platform.startswith("linux") and os.environ.get("SUDO_USER"):
+        import pwd
+        return pwd.getpwnam(os.environ["SUDO_USER"]).pw_dir
+    return os.path.expanduser("~")
+
+
+def save_backup(img):
+    path = os.path.join(user_home(), time.strftime("itefix-backup-%Y%m%d-%H%M%S.bin"))
+    with open(path, "wb") as f:
+        f.write(img)
+    if sys.platform.startswith("linux") and os.environ.get("SUDO_UID"):
+        os.chown(path, int(os.environ["SUDO_UID"]), int(os.environ.get("SUDO_GID", os.environ["SUDO_UID"])))
+    return path
+
+
+def fetch(url):
+    import urllib.request
+    req = urllib.request.Request(url, headers={"User-Agent": f"itefix/{VERSION}"})
+    with urllib.request.urlopen(req, timeout=60) as r:
+        return r.read()
+
+
+def repo_dump_for(model, get=fetch):
+    """look up a clean dump for this model in firmware/index.json on GitHub"""
+    import json
+    try:
+        index = json.loads(get(FW_BASE + "index.json"))
+    except Exception as e:
+        say(f"  could not download the dump list ({e}). check the internet connection.")
+        return None, None
+    for entry in index:
+        if model and model.upper() == entry["model"].upper():
+            say(f"  found a clean dump for {entry['model']} (firmware .{entry['version']}), downloading ...")
+            data = get(FW_BASE + entry["file"])
+            if hashlib.sha256(data).hexdigest() != entry["sha256"]:
+                die("downloaded dump is damaged (sha256 mismatch), try again later.")
+            return data, entry
+    return None, None
+
+
+def run_fix(chip, yes, get=fetch, backup=True):
+    say("== step 1: reading your keyboard chip (nothing is written yet)")
+    img = chip.read_range(0, CHIP_SIZE)
+    again = chip.read_range(0, CHIP_SIZE)
+    if img != again:
+        say("  two reads gave different data, some cells are really weak. using the first read.")
+    if backup:
+        say(f"  backup saved: {save_backup(img)}  (keep it, it's a copy of your chip)")
+    d = describe(img, "your chip")
+    if not d:
+        die("this keyboard chip has a layout itefix doesn't know (for example ITE8259 on the 2025 Flow Z13). "
+            "nothing was written. please open an issue with the text above.", 4)
+    model, version = chip_firmware(img)
+
+    say("== step 2: choosing what to write")
+    if slot_ok(img, d["slots"][0])[0]:
+        say("  your own firmware (app A) is still readable and its checksum is fine. writing it back fresh, "
+            "that's exactly what fixed the first laptop.")
+        ref, allow = img, False
+    else:
+        say(f"  your own app A is damaged. looking for a clean dump of {model or 'your model'} in the repo ...")
+        data, entry = repo_dump_for(model, get)
+        if data is None:
+            die(f"no clean dump for {model or 'this model'} yet. nothing was written. open an issue on "
+                f"https://github.com/{REPO} with the text above, maybe someone can share one.", 4)
+        ref, _ = load_image_bytes(data)
+        if not find_descriptor(ref):
+            die("the downloaded dump has an unknown layout, refusing.", 4)
+        allow = entry["version"] != version
+        if allow:
+            say(f"  your chip has firmware .{version}, the clean dump is .{entry['version']}. it will be written over.")
+
+    chip.writable = set(slot_sectors(d["slots"][0]))
+    sectors = _plan(chip, ref, d, "A", allow_changes=allow)
+    if not yes:
+        say(f"\nabout to rewrite the keyboard firmware ({len(sectors)} small blocks, under a minute).")
+        say("keep the laptop on the charger and don't close the lid.")
+        if input("type YES and press Enter to continue: ").strip() != "YES":
+            die("cancelled, nothing was written")
+    say("== step 3: writing")
+    rc = _write(chip, ref, sectors)
+    if rc == 0:
+        say("\nDONE. now either wait up to 10 minutes, or shut the laptop down completely and turn it on again.")
+        say("if the keyboard works after that, it's fixed.")
+        if model:
+            say(f"if your model ({model}) is not in https://github.com/{REPO}/tree/main/firmware yet, please share "
+                "your backup file there (open an issue, 'share a dump'). it helps the next person.")
+    return rc
+
+
+def load_image_bytes(data):
+    if data[:len(FGA_HEADER)] == FGA_HEADER:
+        data = data[0x100:]
+    return data + b"\xff" * (CHIP_SIZE - len(data)), "dump"
+
+
+def cmd_fix(a):
+    if sys.platform.startswith("linux") and os.geteuid() != 0:
+        die("run it with sudo:  sudo itefix fix")
+    devs = find_devices()
+    if not isp_path():
+        if any(d[0] == ASUS_VID for d in devs):
+            say("your keyboard controller works normally right now (0B05 N-KEY). nothing to fix.")
+            say("if the keyboard still doesn't type, it's something else (keys, cable, settings).")
+            return 0
+        die("keyboard controller not found at all. this tool only helps when it shows up as 048D:89DB "
+            "\"ITE Upgrade Mode\".", 1)
+    return run_fix(Chip(), a.yes)
+
+
+UDEV ='ACTION=="add", SUBSYSTEM=="hidraw", ATTRS{idVendor}=="048d", ATTRS{idProduct}=="89db", ' \
        'TAG+="systemd", ENV{SYSTEMD_WANTS}+="itefix-auto.service"\n'
 UNIT = """[Unit]
 Description=itefix: repair the ASUS keyboard controller stuck in ITE Upgrade Mode
@@ -757,6 +882,7 @@ class SimChip:
 
 def cmd_selftest(a):
     import random
+    time.sleep = lambda *_: None          # the simulated chip doesn't need the real hardware pauses
     rnd = random.Random(1)
     img = bytearray(rnd.getrandbits(8) for _ in range(CHIP_SIZE))
     img[0x3C000:0x40000] = b"\xff" * 0x4000
@@ -803,7 +929,32 @@ def cmd_selftest(a):
     finally:
         globals()["say"] = old
         sys.stderr = err
-    say("selftest OK: leaks repaired, bootloader and ISP block never touched, foreign data refused")
+    # 'fix' path 1: own app A still fine -> refreshed from the chip's own read
+    import json
+    globals()["say"] = lambda *x: None
+    try:
+        sim3 = SimChip(ref)
+        assert run_fix(Chip(transport=sim3), yes=True, backup=False) == 0
+        assert bytes(sim3.mem[0x2000:0x1D800]) == ref[0x2000:0x1D800]
+        # 'fix' path 2: own app A broken -> clean dump of the same model from the repo index
+        broken = bytearray(ref)
+        broken[0x2010:0x2024] = b"FGA00000.TEST  .415\0"
+        ref2 = bytes(broken)
+        broken[0x9000] |= 0x01 if not broken[0x9000] & 1 else 0x02
+        s2 = (-sum(ref2[0x2002:0x1D800])) & 0xFFFF
+        fixed = bytearray(ref2)
+        fixed[0x2000], fixed[0x2001] = s2 >> 8, s2 & 0xFF
+        ref2 = bytes(fixed)
+        broken[0x2000:0x2002] = ref2[0x2000:0x2002]
+        sim4 = SimChip(broken)
+        idx = json.dumps([{"model": "TEST", "version": "415", "file": "TEST/x.bin",
+                           "sha256": hashlib.sha256(ref2).hexdigest()}]).encode()
+        get = lambda url: idx if url.endswith("index.json") else ref2
+        assert run_fix(Chip(transport=sim4), yes=True, get=get, backup=False) == 0
+        assert bytes(sim4.mem[0x2000:0x1D800]) == ref2[0x2000:0x1D800]
+    finally:
+        globals()["say"] = old
+    say("selftest OK: leaks repaired, bootloader and ISP block never touched, foreign data refused, fix works both ways")
     return 0
 
 
@@ -814,6 +965,8 @@ def main():
     p.add_argument("--version", action="version", version=VERSION)
     sub = p.add_subparsers(dest="cmd")
     sub.add_parser("status", help="what the keyboard controller shows up as right now")
+    s = sub.add_parser("fix", help="the easy way: backup, pick the right firmware, repair (asks before writing)")
+    s.add_argument("-y", "--yes", action="store_true")
     s = sub.add_parser("dump", help="read the whole 256 KiB flash (read only, safe)")
     s.add_argument("-o", "--output")
     s.add_argument("--passes", type=int, default=2)
@@ -836,7 +989,7 @@ def main():
     s.add_argument("--ref", required=True)
     sub.add_parser("selftest", help="test the write logic on a simulated chip (no hardware)")
     a = p.parse_args()
-    cmds = {"status": cmd_status, "dump": cmd_dump, "info": cmd_info, "check": cmd_check,
+    cmds = {"status": cmd_status, "fix": cmd_fix, "dump": cmd_dump, "info": cmd_info, "check": cmd_check,
             "refresh": cmd_refresh, "flash": cmd_flash, "auto": cmd_auto,
             "install-auto": cmd_install_auto, "selftest": cmd_selftest}
     if not a.cmd:

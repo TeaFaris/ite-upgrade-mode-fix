@@ -114,13 +114,13 @@ technical details (flash map, checksum, boot flow, protocol): [docs/how-it-works
 
 ROG Strix G16 / G18 / SCAR: G614FM, G614FP, G614FR, G614JI, G614JJ, G614JU, G614JV, G614JZ, G614PM, G614PP, G614PR, G615JM, G615JMR, G615JPR, G615LM, G615LP, G615LR, G615LW, G634JY, G634JZ, G635LR, G635LW, G635LX, G713PI, G713PU, G713PV, G733PY, G733PZ, G814FM, G814FP, G814JI, G814JU, G814JV, G814JZ, G814PM, G814PP, G815JMR, G815JPR, G815LM, G815LP, G815LR, G815LW, G834JY, G834JZ, G835LR, G835LW, G835LX
 
-on these you can also `itefix flash` the official image from the ASUS "ROG Keyboard Firmware Update" package for your model, handy on Linux where the ASUS tool doesn't run.
+the official ASUS keyboard firmware for all of them is in [firmware/asus/](firmware/), taken unchanged from the ASUS "ROG Keyboard Firmware Update" packages. so even if the firmware on your chip is completely dead, `itefix fix` downloads the right file and puts it back, from Linux too, where the ASUS tool doesn't run. it picks the version whose bootloader matches your chip.
 
 **not supported:** the ITE8259 platform: ROG Flow Z13 GZ302 (2025), and going by the Reddit post the Zephyrus M16 GU603ZW. different flash layout, itefix doesn't recognize it and refuses to write, nothing breaks. older GL703VD / GL502VMK: unknown.
 
 ## firmware in this repo
 
-[firmware/](firmware/) has clean keyboard controller dumps, right now GU605 .415 from my laptop. **if itefix fixed your keyboard, send me your dump**: `itefix info` it, zip it, open an issue with the "share a dump" template and attach the zip. the next person with your model won't have to wait for ASUS.
+[firmware/](firmware/) has the official ASUS keyboard firmware for 47 Strix models plus the GU605 .415 dump from my laptop, 82 files, `itefix fix` picks from them automatically. **if itefix fixed your keyboard, send me your dump**: `itefix info` it, zip it, open an issue with the "share a dump" template and attach the zip. the next person with your model won't have to wait for ASUS.
 
 ## laptops with the same 048D:89DB symptom
 
@@ -148,4 +148,4 @@ if yours is not here, open an issue, I'll add it.
 
 ## license
 
-MIT for the code, see [LICENSE](LICENSE). the dumps in firmware/ are ASUS firmware read out of the laptops' own chips, shared only so people can repair their own hardware.
+MIT for the code, see [LICENSE](LICENSE). the files in firmware/ are ASUS firmware (official packages and dumps read out of the laptops' own chips), shared only so people can repair their own hardware.

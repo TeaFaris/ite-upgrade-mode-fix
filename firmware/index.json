@@ -1,4 +1,822 @@
 [
-  {"model": "GU605", "version": "415", "file": "GU605/FGA00000.GU605.415.bin",
-   "sha256": "2cba485d89716781611f12d935e2a6d0c6699226c65ea6881f5ef52c0baa7dc7"}
+ {
+  "model": "G614FM",
+  "version": "214",
+  "file": "asus/G614FM/FGA00000.G614FM.214",
+  "sha256": "dd1681cb078faebddddfc6715fa0ab86abeac89fd7be88da6fc5407ea8210398",
+  "boot_sha256": "dbc27dd3a02412bd5b1ec5fb5ca9ec64fc98e355d192adbeb333750d4489980c",
+  "source": "ASUS ROGNkeyFWupdate V4.8.3.003",
+  "app_a": "OK",
+  "app_b": "OK"
+ },
+ {
+  "model": "G614FM",
+  "version": "317",
+  "file": "asus/G614FM/FGA00000.G614FM.317",
+  "sha256": "948b73ec299d8bc099a0295828be721d43b7f01f89a53667d6bc2380c4203e57",
+  "boot_sha256": "523c574f579324247b7a0f5b22b7f5c22506dd5022c263173204a12c7be174c2",
+  "source": "ASUS ROGNkeyFWupdate V4.8.3.003",
+  "app_a": "OK",
+  "app_b": "OK"
+ },
+ {
+  "model": "G614FP",
+  "version": "214",
+  "file": "asus/G614FP/FGA00000.G614FP.214",
+  "sha256": "6a6a8aca189ae70271e72af83f3eeab8412b4ad79d8e4948c728079cd7373266",
+  "boot_sha256": "dbc27dd3a02412bd5b1ec5fb5ca9ec64fc98e355d192adbeb333750d4489980c",
+  "source": "ASUS ROGNkeyFWupdate V4.8.3.003",
+  "app_a": "OK",
+  "app_b": "OK"
+ },
+ {
+  "model": "G614FP",
+  "version": "317",
+  "file": "asus/G614FP/FGA00000.G614FP.317",
+  "sha256": "f66918083ae8431f77c2989932e621dbd00bf278507dc034d268ce7f31b6409e",
+  "boot_sha256": "523c574f579324247b7a0f5b22b7f5c22506dd5022c263173204a12c7be174c2",
+  "source": "ASUS ROGNkeyFWupdate V4.8.3.003",
+  "app_a": "OK",
+  "app_b": "OK"
+ },
+ {
+  "model": "G614FR",
+  "version": "214",
+  "file": "asus/G614FR/FGA00000.G614FR.214",
+  "sha256": "72c33b29abf34d9cde121c8fbff3f6783ac8986771bfe019673945b95129ee5e",
+  "boot_sha256": "dbc27dd3a02412bd5b1ec5fb5ca9ec64fc98e355d192adbeb333750d4489980c",
+  "source": "ASUS ROGNkeyFWupdate V4.8.3.003",
+  "app_a": "OK",
+  "app_b": "OK"
+ },
+ {
+  "model": "G614FR",
+  "version": "317",
+  "file": "asus/G614FR/FGA00000.G614FR.317",
+  "sha256": "ee7f7f426abd702502f26b2a5646e6b6b59e3004a4a81c68908edda82430aaa4",
+  "boot_sha256": "523c574f579324247b7a0f5b22b7f5c22506dd5022c263173204a12c7be174c2",
+  "source": "ASUS ROGNkeyFWupdate V4.8.3.003",
+  "app_a": "OK",
+  "app_b": "OK"
+ },
+ {
+  "model": "G614JI",
+  "version": "206",
+  "file": "asus/G614JI/FGA00000.G614JI.206",
+  "sha256": "a5d0a7f2d0a0347c90fed6e3c7cc33ac638b411f3d3ddd81e4936f56878a0c77",
+  "boot_sha256": "86265818f89669e81de93d26115a726e3a5d6c33eaca82d18dd0b684e6c2e31a",
+  "source": "ASUS ROGNkeyFWupdate V3.8.3.007",
+  "app_a": "OK",
+  "app_b": "OK"
+ },
+ {
+  "model": "G614JI",
+  "version": "315",
+  "file": "asus/G614JI/FGA00000.G614JI.315",
+  "sha256": "edf38e859b9d5050fb546919d26822e74dfea9dcaf3fe68a4f8d625f354b1739",
+  "boot_sha256": "86265818f89669e81de93d26115a726e3a5d6c33eaca82d18dd0b684e6c2e31a",
+  "source": "ASUS ROGNkeyFWupdate V3.8.3.007",
+  "app_a": "OK",
+  "app_b": "OK"
+ },
+ {
+  "model": "G614JJ",
+  "version": "206",
+  "file": "asus/G614JJ/FGA00000.G614JJ.206",
+  "sha256": "18f4c8b5b184a62366a326ec7f083cfd9b745a7fea1bf0c2bc299b9c700c425b",
+  "boot_sha256": "86265818f89669e81de93d26115a726e3a5d6c33eaca82d18dd0b684e6c2e31a",
+  "source": "ASUS ROGNkeyFWupdate V3.8.3.007",
+  "app_a": "OK",
+  "app_b": "OK"
+ },
+ {
+  "model": "G614JU",
+  "version": "206",
+  "file": "asus/G614JU/FGA00000.G614JU.206",
+  "sha256": "2b7924f49b359e5a4f37aaebc7512ae734a73f984745398b0496eff110377524",
+  "boot_sha256": "86265818f89669e81de93d26115a726e3a5d6c33eaca82d18dd0b684e6c2e31a",
+  "source": "ASUS ROGNkeyFWupdate V3.8.3.007",
+  "app_a": "OK",
+  "app_b": "OK"
+ },
+ {
+  "model": "G614JU",
+  "version": "315",
+  "file": "asus/G614JU/FGA00000.G614JU.315",
+  "sha256": "42a2c89e93652f2bfef90b38fbecf4e4f92b44d80860a095db27c082f62fe6ba",
+  "boot_sha256": "86265818f89669e81de93d26115a726e3a5d6c33eaca82d18dd0b684e6c2e31a",
+  "source": "ASUS ROGNkeyFWupdate V3.8.3.007",
+  "app_a": "OK",
+  "app_b": "OK"
+ },
+ {
+  "model": "G614JV",
+  "version": "206",
+  "file": "asus/G614JV/FGA00000.G614JV.206",
+  "sha256": "fdc9301ef0a6b916c86e066f1382f79c56c615bad43c8e16589ad341c895b63c",
+  "boot_sha256": "86265818f89669e81de93d26115a726e3a5d6c33eaca82d18dd0b684e6c2e31a",
+  "source": "ASUS ROGNkeyFWupdate V3.8.3.007",
+  "app_a": "OK",
+  "app_b": "OK"
+ },
+ {
+  "model": "G614JV",
+  "version": "315",
+  "file": "asus/G614JV/FGA00000.G614JV.315",
+  "sha256": "29514f3d15c4db1bac2df14edb9307ebdf51fe0cd11417b98bc4ca98935e3dd6",
+  "boot_sha256": "86265818f89669e81de93d26115a726e3a5d6c33eaca82d18dd0b684e6c2e31a",
+  "source": "ASUS ROGNkeyFWupdate V3.8.3.007",
+  "app_a": "OK",
+  "app_b": "OK"
+ },
+ {
+  "model": "G614JZ",
+  "version": "206",
+  "file": "asus/G614JZ/FGA00000.G614JZ.206",
+  "sha256": "1240638eb76253ed126482dcaceec996b810beec844a90a542ed41b0fc178d76",
+  "boot_sha256": "86265818f89669e81de93d26115a726e3a5d6c33eaca82d18dd0b684e6c2e31a",
+  "source": "ASUS ROGNkeyFWupdate V3.8.3.007",
+  "app_a": "OK",
+  "app_b": "OK"
+ },
+ {
+  "model": "G614JZ",
+  "version": "315",
+  "file": "asus/G614JZ/FGA00000.G614JZ.315",
+  "sha256": "50343225dc479a3946326a4cb905458dd242fb6d4a90d0aa00002e7e95b72ce6",
+  "boot_sha256": "86265818f89669e81de93d26115a726e3a5d6c33eaca82d18dd0b684e6c2e31a",
+  "source": "ASUS ROGNkeyFWupdate V3.8.3.007",
+  "app_a": "OK",
+  "app_b": "OK"
+ },
+ {
+  "model": "G614PM",
+  "version": "214",
+  "file": "asus/G614PM/FGA00000.G614PM.214",
+  "sha256": "0c9045c9db5f16d1e2e2dc0709dd7e777e023fded9cd62eff5d7c694e5bf7f1d",
+  "boot_sha256": "dbc27dd3a02412bd5b1ec5fb5ca9ec64fc98e355d192adbeb333750d4489980c",
+  "source": "ASUS ROGNkeyFWupdate V4.8.3.003",
+  "app_a": "OK",
+  "app_b": "OK"
+ },
+ {
+  "model": "G614PM",
+  "version": "317",
+  "file": "asus/G614PM/FGA00000.G614PM.317",
+  "sha256": "087c842dba832b38902dc88201ee8b1c3be70fa797b02c47a3c3dd9219aa0fd5",
+  "boot_sha256": "523c574f579324247b7a0f5b22b7f5c22506dd5022c263173204a12c7be174c2",
+  "source": "ASUS ROGNkeyFWupdate V4.8.3.003",
+  "app_a": "OK",
+  "app_b": "OK"
+ },
+ {
+  "model": "G614PP",
+  "version": "214",
+  "file": "asus/G614PP/FGA00000.G614PP.214",
+  "sha256": "4c22c0a33146d308c09f00cb71b683633aa07649a42c30e2d49b465d1aa8ff07",
+  "boot_sha256": "dbc27dd3a02412bd5b1ec5fb5ca9ec64fc98e355d192adbeb333750d4489980c",
+  "source": "ASUS ROGNkeyFWupdate V4.8.3.003",
+  "app_a": "OK",
+  "app_b": "OK"
+ },
+ {
+  "model": "G614PP",
+  "version": "317",
+  "file": "asus/G614PP/FGA00000.G614PP.317",
+  "sha256": "7ea3b725d62f533381c361fc6f9e5525215e742440f168a8ed933be8507fe611",
+  "boot_sha256": "523c574f579324247b7a0f5b22b7f5c22506dd5022c263173204a12c7be174c2",
+  "source": "ASUS ROGNkeyFWupdate V4.8.3.003",
+  "app_a": "OK",
+  "app_b": "OK"
+ },
+ {
+  "model": "G614PR",
+  "version": "214",
+  "file": "asus/G614PR/FGA00000.G614PR.214",
+  "sha256": "81dfffe7196e09600270192039c298c1fda313dce30f202794efb8eb461b4a91",
+  "boot_sha256": "dbc27dd3a02412bd5b1ec5fb5ca9ec64fc98e355d192adbeb333750d4489980c",
+  "source": "ASUS ROGNkeyFWupdate V4.8.3.003",
+  "app_a": "OK",
+  "app_b": "OK"
+ },
+ {
+  "model": "G614PR",
+  "version": "317",
+  "file": "asus/G614PR/FGA00000.G614PR.317",
+  "sha256": "9a87539b8ef99404e3ba476d19c5e60c6078c0fb7af4c9268e105059e129668e",
+  "boot_sha256": "523c574f579324247b7a0f5b22b7f5c22506dd5022c263173204a12c7be174c2",
+  "source": "ASUS ROGNkeyFWupdate V4.8.3.003",
+  "app_a": "OK",
+  "app_b": "OK"
+ },
+ {
+  "model": "G615JM",
+  "version": "214",
+  "file": "asus/G615JM/FGA00000.G615JM.214",
+  "sha256": "b88f1a4af5b5687d9152dc278918077c8d7e1a591523d387e9c89cbbd311d63d",
+  "boot_sha256": "dbc27dd3a02412bd5b1ec5fb5ca9ec64fc98e355d192adbeb333750d4489980c",
+  "source": "ASUS ROGNkeyFWupdate V4.8.3.003",
+  "app_a": "OK",
+  "app_b": "OK"
+ },
+ {
+  "model": "G615JM",
+  "version": "317",
+  "file": "asus/G615JM/FGA00000.G615JM.317",
+  "sha256": "5e70eb83e0305bc914150dd0388b169314c3e379e64b7b9f5d4ad1ed3fd67b30",
+  "boot_sha256": "523c574f579324247b7a0f5b22b7f5c22506dd5022c263173204a12c7be174c2",
+  "source": "ASUS ROGNkeyFWupdate V4.8.3.003",
+  "app_a": "OK",
+  "app_b": "OK"
+ },
+ {
+  "model": "G615JMR",
+  "version": "214",
+  "file": "asus/G615JMR/FGA00000.G615JMR.214",
+  "sha256": "878b0cb4b7927e8854fb25ee6d525595fe58ce7c8d86293ef171de069878b4c4",
+  "boot_sha256": "dbc27dd3a02412bd5b1ec5fb5ca9ec64fc98e355d192adbeb333750d4489980c",
+  "source": "ASUS ROGNkeyFWupdate V4.8.3.003",
+  "app_a": "OK",
+  "app_b": "OK"
+ },
+ {
+  "model": "G615JMR",
+  "version": "317",
+  "file": "asus/G615JMR/FGA00000.G615JMR.317",
+  "sha256": "cf155a87adc82d16be74ceb7b8af45e851eba48cac7e31230d643d37da1b2c89",
+  "boot_sha256": "523c574f579324247b7a0f5b22b7f5c22506dd5022c263173204a12c7be174c2",
+  "source": "ASUS ROGNkeyFWupdate V4.8.3.003",
+  "app_a": "OK",
+  "app_b": "OK"
+ },
+ {
+  "model": "G615JPR",
+  "version": "214",
+  "file": "asus/G615JPR/FGA00000.G615JPR.214",
+  "sha256": "0b981182cf7546c124c83c07f275f32e96cf55e85ec9ff73c4849e9ddf9fbf98",
+  "boot_sha256": "dbc27dd3a02412bd5b1ec5fb5ca9ec64fc98e355d192adbeb333750d4489980c",
+  "source": "ASUS ROGNkeyFWupdate V4.8.3.003",
+  "app_a": "OK",
+  "app_b": "OK"
+ },
+ {
+  "model": "G615JPR",
+  "version": "317",
+  "file": "asus/G615JPR/FGA00000.G615JPR.317",
+  "sha256": "dfb60e6aaa599bd6d1e088753811669639105ad68bd36ec60973a28a1ac67ecf",
+  "boot_sha256": "523c574f579324247b7a0f5b22b7f5c22506dd5022c263173204a12c7be174c2",
+  "source": "ASUS ROGNkeyFWupdate V4.8.3.003",
+  "app_a": "OK",
+  "app_b": "OK"
+ },
+ {
+  "model": "G615LM",
+  "version": "214",
+  "file": "asus/G615LM/FGA00000.G615LM.214",
+  "sha256": "208211dbb78c20aab6d138932e1ebcad1a7135856c821f4e575d0e05bbf096bb",
+  "boot_sha256": "dbc27dd3a02412bd5b1ec5fb5ca9ec64fc98e355d192adbeb333750d4489980c",
+  "source": "ASUS ROGNkeyFWupdate V4.8.3.003",
+  "app_a": "OK",
+  "app_b": "OK"
+ },
+ {
+  "model": "G615LM",
+  "version": "317",
+  "file": "asus/G615LM/FGA00000.G615LM.317",
+  "sha256": "385cbebf23892a667da837088b6bb7179f7cc84281f735ba7aedf5198635f6e9",
+  "boot_sha256": "523c574f579324247b7a0f5b22b7f5c22506dd5022c263173204a12c7be174c2",
+  "source": "ASUS ROGNkeyFWupdate V4.8.3.003",
+  "app_a": "OK",
+  "app_b": "OK"
+ },
+ {
+  "model": "G615LP",
+  "version": "214",
+  "file": "asus/G615LP/FGA00000.G615LP.214",
+  "sha256": "f92f1c16fe893a2d10729345178699412ca67138b5c7810ce1f83206cc3b1e53",
+  "boot_sha256": "dbc27dd3a02412bd5b1ec5fb5ca9ec64fc98e355d192adbeb333750d4489980c",
+  "source": "ASUS ROGNkeyFWupdate V4.8.3.003",
+  "app_a": "OK",
+  "app_b": "OK"
+ },
+ {
+  "model": "G615LP",
+  "version": "317",
+  "file": "asus/G615LP/FGA00000.G615LP.317",
+  "sha256": "36a488c62000007789b089d8b8b12f493a709284e103f0a363f0435560fbc747",
+  "boot_sha256": "523c574f579324247b7a0f5b22b7f5c22506dd5022c263173204a12c7be174c2",
+  "source": "ASUS ROGNkeyFWupdate V4.8.3.003",
+  "app_a": "OK",
+  "app_b": "OK"
+ },
+ {
+  "model": "G615LR",
+  "version": "214",
+  "file": "asus/G615LR/FGA00000.G615LR.214",
+  "sha256": "c715ab896e11581b9f3baa824a96ca0e6f484836aaf288d567fd267a354eb3cb",
+  "boot_sha256": "dbc27dd3a02412bd5b1ec5fb5ca9ec64fc98e355d192adbeb333750d4489980c",
+  "source": "ASUS ROGNkeyFWupdate V4.8.3.003",
+  "app_a": "OK",
+  "app_b": "OK"
+ },
+ {
+  "model": "G615LR",
+  "version": "317",
+  "file": "asus/G615LR/FGA00000.G615LR.317",
+  "sha256": "8d8fd67f5f454d2d0cbead9682ad1af4508f35385dc28e0ac0e59cf25303619c",
+  "boot_sha256": "523c574f579324247b7a0f5b22b7f5c22506dd5022c263173204a12c7be174c2",
+  "source": "ASUS ROGNkeyFWupdate V4.8.3.003",
+  "app_a": "OK",
+  "app_b": "OK"
+ },
+ {
+  "model": "G615LW",
+  "version": "214",
+  "file": "asus/G615LW/FGA00000.G615LW.214",
+  "sha256": "633e31588a705674804219836fd2b80ec102942858c1c034eeecb947d2228ba7",
+  "boot_sha256": "dbc27dd3a02412bd5b1ec5fb5ca9ec64fc98e355d192adbeb333750d4489980c",
+  "source": "ASUS ROGNkeyFWupdate V4.8.3.003",
+  "app_a": "OK",
+  "app_b": "OK"
+ },
+ {
+  "model": "G615LW",
+  "version": "317",
+  "file": "asus/G615LW/FGA00000.G615LW.317",
+  "sha256": "ac45d42076da8755700a64fea3bfa3d113036528790c0bf8ede31cae8a3c8deb",
+  "boot_sha256": "523c574f579324247b7a0f5b22b7f5c22506dd5022c263173204a12c7be174c2",
+  "source": "ASUS ROGNkeyFWupdate V4.8.3.003",
+  "app_a": "OK",
+  "app_b": "OK"
+ },
+ {
+  "model": "G634JY",
+  "version": "315",
+  "file": "asus/G634JY/FGA00000.G634JY.315",
+  "sha256": "dd2ae86e750d3d1cdd4502004224a726496714623e9ee34b166fa5a56e063862",
+  "boot_sha256": "86265818f89669e81de93d26115a726e3a5d6c33eaca82d18dd0b684e6c2e31a",
+  "source": "ASUS ROGNkeyFWupdate V3.8.3.007",
+  "app_a": "OK",
+  "app_b": "OK"
+ },
+ {
+  "model": "G634JZ",
+  "version": "315",
+  "file": "asus/G634JZ/FGA00000.G634JZ.315",
+  "sha256": "c63e25a213f808261e0f9f6b6b8d14fcecf46d931435376070088952eb291c09",
+  "boot_sha256": "86265818f89669e81de93d26115a726e3a5d6c33eaca82d18dd0b684e6c2e31a",
+  "source": "ASUS ROGNkeyFWupdate V3.8.3.007",
+  "app_a": "OK",
+  "app_b": "OK"
+ },
+ {
+  "model": "G635LR",
+  "version": "317",
+  "file": "asus/G635LR/FGA00000.G635LR.317",
+  "sha256": "514866b566d2510eb4eca4f4937d8b542371a1da5475730279ad3c1c49a1eb24",
+  "boot_sha256": "523c574f579324247b7a0f5b22b7f5c22506dd5022c263173204a12c7be174c2",
+  "source": "ASUS ROGNkeyFWupdate V4.8.3.003",
+  "app_a": "OK",
+  "app_b": "OK"
+ },
+ {
+  "model": "G635LW",
+  "version": "317",
+  "file": "asus/G635LW/FGA00000.G635LW.317",
+  "sha256": "1eb7b99680a7640480295968c387709d7acecafc7e6564139d0aece47aa6bdc8",
+  "boot_sha256": "523c574f579324247b7a0f5b22b7f5c22506dd5022c263173204a12c7be174c2",
+  "source": "ASUS ROGNkeyFWupdate V4.8.3.003",
+  "app_a": "OK",
+  "app_b": "OK"
+ },
+ {
+  "model": "G635LX",
+  "version": "317",
+  "file": "asus/G635LX/FGA00000.G635LX.317",
+  "sha256": "956f1c8b5ffe69c0ca62f94b4b82268b829d1a25728207ea7dcbf320509d52a9",
+  "boot_sha256": "523c574f579324247b7a0f5b22b7f5c22506dd5022c263173204a12c7be174c2",
+  "source": "ASUS ROGNkeyFWupdate V4.8.3.003",
+  "app_a": "OK",
+  "app_b": "OK"
+ },
+ {
+  "model": "G713PI",
+  "version": "206",
+  "file": "asus/G713PI/FGA00000.G713PI.206",
+  "sha256": "a4fd99f6591455c6496890c3db00554015b07a7c03e3186cb0341995b81f5790",
+  "boot_sha256": "86265818f89669e81de93d26115a726e3a5d6c33eaca82d18dd0b684e6c2e31a",
+  "source": "ASUS ROGNkeyFWupdate V3.8.3.007",
+  "app_a": "OK",
+  "app_b": "OK"
+ },
+ {
+  "model": "G713PI",
+  "version": "315",
+  "file": "asus/G713PI/FGA00000.G713PI.315",
+  "sha256": "f3062444d434af1b280dd7a63a4790d11f82a968ca48f32c1ed89874c5166464",
+  "boot_sha256": "86265818f89669e81de93d26115a726e3a5d6c33eaca82d18dd0b684e6c2e31a",
+  "source": "ASUS ROGNkeyFWupdate V3.8.3.007",
+  "app_a": "OK",
+  "app_b": "OK"
+ },
+ {
+  "model": "G713PU",
+  "version": "206",
+  "file": "asus/G713PU/FGA00000.G713PU.206",
+  "sha256": "3b7bc4a2d49e47840b442958e3e521bae1d5a679899cb0224af91f158582ac05",
+  "boot_sha256": "86265818f89669e81de93d26115a726e3a5d6c33eaca82d18dd0b684e6c2e31a",
+  "source": "ASUS ROGNkeyFWupdate V3.8.3.007",
+  "app_a": "OK",
+  "app_b": "OK"
+ },
+ {
+  "model": "G713PU",
+  "version": "315",
+  "file": "asus/G713PU/FGA00000.G713PU.315",
+  "sha256": "a0c6013288536294aa63b0e1d5e4b336dbce5043b93e73ed0f8ca7ef4d6f959e",
+  "boot_sha256": "86265818f89669e81de93d26115a726e3a5d6c33eaca82d18dd0b684e6c2e31a",
+  "source": "ASUS ROGNkeyFWupdate V3.8.3.007",
+  "app_a": "OK",
+  "app_b": "OK"
+ },
+ {
+  "model": "G713PV",
+  "version": "206",
+  "file": "asus/G713PV/FGA00000.G713PV.206",
+  "sha256": "e7cdc6de1c9ea7d3c211ecd8e953a6b53af04a31fd8dc290a45ee023c8e06d4b",
+  "boot_sha256": "86265818f89669e81de93d26115a726e3a5d6c33eaca82d18dd0b684e6c2e31a",
+  "source": "ASUS ROGNkeyFWupdate V3.8.3.007",
+  "app_a": "OK",
+  "app_b": "OK"
+ },
+ {
+  "model": "G713PV",
+  "version": "315",
+  "file": "asus/G713PV/FGA00000.G713PV.315",
+  "sha256": "5c731a8646d95a9668ab62f98fedfa9122a7d50930183f58a4c22dd3e296661d",
+  "boot_sha256": "86265818f89669e81de93d26115a726e3a5d6c33eaca82d18dd0b684e6c2e31a",
+  "source": "ASUS ROGNkeyFWupdate V3.8.3.007",
+  "app_a": "OK",
+  "app_b": "OK"
+ },
+ {
+  "model": "G733PY",
+  "version": "315",
+  "file": "asus/G733PY/FGA00000.G733PY.315",
+  "sha256": "d464e91d368656e827db445357f20af8f5729957f27b6718762ac96b1e7d4cf9",
+  "boot_sha256": "86265818f89669e81de93d26115a726e3a5d6c33eaca82d18dd0b684e6c2e31a",
+  "source": "ASUS ROGNkeyFWupdate V3.8.3.007",
+  "app_a": "OK",
+  "app_b": "OK"
+ },
+ {
+  "model": "G733PZ",
+  "version": "315",
+  "file": "asus/G733PZ/FGA00000.G733PZ.315",
+  "sha256": "f4134dca83877b9848553ab6dcb5aeb1b2d80b1ec92f0f0da64d67c7930bfba8",
+  "boot_sha256": "86265818f89669e81de93d26115a726e3a5d6c33eaca82d18dd0b684e6c2e31a",
+  "source": "ASUS ROGNkeyFWupdate V3.8.3.007",
+  "app_a": "OK",
+  "app_b": "OK"
+ },
+ {
+  "model": "G814FM",
+  "version": "214",
+  "file": "asus/G814FM/FGA00000.G814FM.214",
+  "sha256": "c252149ccd2e0a03942ff45630949c31afd099ec65915834b0953373e2caddfc",
+  "boot_sha256": "dbc27dd3a02412bd5b1ec5fb5ca9ec64fc98e355d192adbeb333750d4489980c",
+  "source": "ASUS ROGNkeyFWupdate V4.8.3.003",
+  "app_a": "OK",
+  "app_b": "OK"
+ },
+ {
+  "model": "G814FM",
+  "version": "317",
+  "file": "asus/G814FM/FGA00000.G814FM.317",
+  "sha256": "21ce7faecc3808cda1c3234020aea66bebd9c1128e548884a4cd8ac2ffd6b269",
+  "boot_sha256": "523c574f579324247b7a0f5b22b7f5c22506dd5022c263173204a12c7be174c2",
+  "source": "ASUS ROGNkeyFWupdate V4.8.3.003",
+  "app_a": "OK",
+  "app_b": "OK"
+ },
+ {
+  "model": "G814FP",
+  "version": "214",
+  "file": "asus/G814FP/FGA00000.G814FP.214",
+  "sha256": "0d690b9618b9016597971f685631436eb439dd004db89bf788821dccad765ae1",
+  "boot_sha256": "dbc27dd3a02412bd5b1ec5fb5ca9ec64fc98e355d192adbeb333750d4489980c",
+  "source": "ASUS ROGNkeyFWupdate V4.8.3.003",
+  "app_a": "OK",
+  "app_b": "OK"
+ },
+ {
+  "model": "G814FP",
+  "version": "317",
+  "file": "asus/G814FP/FGA00000.G814FP.317",
+  "sha256": "c113a2564f6a37147aec1d49b2bd0b82fee8553d9dc0a39ae0e760e471b925e5",
+  "boot_sha256": "523c574f579324247b7a0f5b22b7f5c22506dd5022c263173204a12c7be174c2",
+  "source": "ASUS ROGNkeyFWupdate V4.8.3.003",
+  "app_a": "OK",
+  "app_b": "OK"
+ },
+ {
+  "model": "G814JI",
+  "version": "206",
+  "file": "asus/G814JI/FGA00000.G814JI.206",
+  "sha256": "e5001ad67a3b85ee38ed9efaec19c7ba77d84a18cd4bd1afb3a724ff91a58954",
+  "boot_sha256": "86265818f89669e81de93d26115a726e3a5d6c33eaca82d18dd0b684e6c2e31a",
+  "source": "ASUS ROGNkeyFWupdate V3.8.3.007",
+  "app_a": "OK",
+  "app_b": "OK"
+ },
+ {
+  "model": "G814JI",
+  "version": "315",
+  "file": "asus/G814JI/FGA00000.G814JI.315",
+  "sha256": "78e9172af0849b2cb7420b8b90403e3dd71a12ba3808ab8211de27498daa9427",
+  "boot_sha256": "86265818f89669e81de93d26115a726e3a5d6c33eaca82d18dd0b684e6c2e31a",
+  "source": "ASUS ROGNkeyFWupdate V3.8.3.007",
+  "app_a": "OK",
+  "app_b": "OK"
+ },
+ {
+  "model": "G814JU",
+  "version": "206",
+  "file": "asus/G814JU/FGA00000.G814JU.206",
+  "sha256": "4cf7580799c4d28e3b4e038a74df4d2d2494a2752ac4f71f6f6e464f4d41a14b",
+  "boot_sha256": "86265818f89669e81de93d26115a726e3a5d6c33eaca82d18dd0b684e6c2e31a",
+  "source": "ASUS ROGNkeyFWupdate V3.8.3.007",
+  "app_a": "OK",
+  "app_b": "OK"
+ },
+ {
+  "model": "G814JU",
+  "version": "315",
+  "file": "asus/G814JU/FGA00000.G814JU.315",
+  "sha256": "d5f7404fc3a72e7323f3da26a9726f2470d30f17457845143aae02296d6db987",
+  "boot_sha256": "86265818f89669e81de93d26115a726e3a5d6c33eaca82d18dd0b684e6c2e31a",
+  "source": "ASUS ROGNkeyFWupdate V3.8.3.007",
+  "app_a": "OK",
+  "app_b": "OK"
+ },
+ {
+  "model": "G814JV",
+  "version": "206",
+  "file": "asus/G814JV/FGA00000.G814JV.206",
+  "sha256": "a0c202cc3752ae4926301c53f6301aeb123f1844f6e3da8a555d4a0906b25bc8",
+  "boot_sha256": "86265818f89669e81de93d26115a726e3a5d6c33eaca82d18dd0b684e6c2e31a",
+  "source": "ASUS ROGNkeyFWupdate V3.8.3.007",
+  "app_a": "OK",
+  "app_b": "OK"
+ },
+ {
+  "model": "G814JV",
+  "version": "315",
+  "file": "asus/G814JV/FGA00000.G814JV.315",
+  "sha256": "a9768a45f31c35bea698ffc32a5fbf218ca50ea90aa73ef2b4ae83ee391c8622",
+  "boot_sha256": "86265818f89669e81de93d26115a726e3a5d6c33eaca82d18dd0b684e6c2e31a",
+  "source": "ASUS ROGNkeyFWupdate V3.8.3.007",
+  "app_a": "OK",
+  "app_b": "OK"
+ },
+ {
+  "model": "G814JZ",
+  "version": "206",
+  "file": "asus/G814JZ/FGA00000.G814JZ.206",
+  "sha256": "f987e94d393db036ad4101e804016f2e88313467ffe2e986b842a7d4727a5ddb",
+  "boot_sha256": "86265818f89669e81de93d26115a726e3a5d6c33eaca82d18dd0b684e6c2e31a",
+  "source": "ASUS ROGNkeyFWupdate V3.8.3.007",
+  "app_a": "OK",
+  "app_b": "OK"
+ },
+ {
+  "model": "G814JZ",
+  "version": "315",
+  "file": "asus/G814JZ/FGA00000.G814JZ.315",
+  "sha256": "300a336203444831d4bd0cf00342800eb25acd1db3d8b0bec97794ed41522a17",
+  "boot_sha256": "86265818f89669e81de93d26115a726e3a5d6c33eaca82d18dd0b684e6c2e31a",
+  "source": "ASUS ROGNkeyFWupdate V3.8.3.007",
+  "app_a": "OK",
+  "app_b": "OK"
+ },
+ {
+  "model": "G814PM",
+  "version": "214",
+  "file": "asus/G814PM/FGA00000.G814PM.214",
+  "sha256": "bab6ff0b597dabb2ff3b4e9dbc5fd617d221ce3564185fa4292a54ec2e07c7e3",
+  "boot_sha256": "dbc27dd3a02412bd5b1ec5fb5ca9ec64fc98e355d192adbeb333750d4489980c",
+  "source": "ASUS ROGNkeyFWupdate V4.8.3.003",
+  "app_a": "OK",
+  "app_b": "OK"
+ },
+ {
+  "model": "G814PM",
+  "version": "317",
+  "file": "asus/G814PM/FGA00000.G814PM.317",
+  "sha256": "4d101fdff6ccc0dd2bfd104a3012aab1f37d74c01f3fd93d9a8207861aac4242",
+  "boot_sha256": "523c574f579324247b7a0f5b22b7f5c22506dd5022c263173204a12c7be174c2",
+  "source": "ASUS ROGNkeyFWupdate V4.8.3.003",
+  "app_a": "OK",
+  "app_b": "OK"
+ },
+ {
+  "model": "G814PP",
+  "version": "214",
+  "file": "asus/G814PP/FGA00000.G814PP.214",
+  "sha256": "98b26a8ea89ebdc81b092616bd92251ebcc50815afa86b1c0474a8943d85bffd",
+  "boot_sha256": "dbc27dd3a02412bd5b1ec5fb5ca9ec64fc98e355d192adbeb333750d4489980c",
+  "source": "ASUS ROGNkeyFWupdate V4.8.3.003",
+  "app_a": "OK",
+  "app_b": "OK"
+ },
+ {
+  "model": "G814PP",
+  "version": "317",
+  "file": "asus/G814PP/FGA00000.G814PP.317",
+  "sha256": "50d344da50044a14321b764cc4e0e312fd2295d1c57ce269bc2eae08d5800f93",
+  "boot_sha256": "523c574f579324247b7a0f5b22b7f5c22506dd5022c263173204a12c7be174c2",
+  "source": "ASUS ROGNkeyFWupdate V4.8.3.003",
+  "app_a": "OK",
+  "app_b": "OK"
+ },
+ {
+  "model": "G815JMR",
+  "version": "214",
+  "file": "asus/G815JMR/FGA00000.G815JMR.214",
+  "sha256": "427f96da184adab202843b1324c860283f7ecf3a4cd8f6992dfc44b576af590e",
+  "boot_sha256": "dbc27dd3a02412bd5b1ec5fb5ca9ec64fc98e355d192adbeb333750d4489980c",
+  "source": "ASUS ROGNkeyFWupdate V4.8.3.003",
+  "app_a": "OK",
+  "app_b": "OK"
+ },
+ {
+  "model": "G815JMR",
+  "version": "317",
+  "file": "asus/G815JMR/FGA00000.G815JMR.317",
+  "sha256": "457e0511dc0f28d9600126dc57f2ba129c58a2888bad3bcaa1f374bcf0472a9f",
+  "boot_sha256": "523c574f579324247b7a0f5b22b7f5c22506dd5022c263173204a12c7be174c2",
+  "source": "ASUS ROGNkeyFWupdate V4.8.3.003",
+  "app_a": "OK",
+  "app_b": "OK"
+ },
+ {
+  "model": "G815JPR",
+  "version": "214",
+  "file": "asus/G815JPR/FGA00000.G815JPR.214",
+  "sha256": "0151efcc570ec04edba32ca477f708f45de603d96bb914eda8569e99a0b583c3",
+  "boot_sha256": "dbc27dd3a02412bd5b1ec5fb5ca9ec64fc98e355d192adbeb333750d4489980c",
+  "source": "ASUS ROGNkeyFWupdate V4.8.3.003",
+  "app_a": "OK",
+  "app_b": "OK"
+ },
+ {
+  "model": "G815JPR",
+  "version": "317",
+  "file": "asus/G815JPR/FGA00000.G815JPR.317",
+  "sha256": "42e920ab96a73b34760d275a9c7b9ea2079db3b992ea2babd561c6a79f818584",
+  "boot_sha256": "523c574f579324247b7a0f5b22b7f5c22506dd5022c263173204a12c7be174c2",
+  "source": "ASUS ROGNkeyFWupdate V4.8.3.003",
+  "app_a": "OK",
+  "app_b": "OK"
+ },
+ {
+  "model": "G815LM",
+  "version": "214",
+  "file": "asus/G815LM/FGA00000.G815LM.214",
+  "sha256": "06e69e718dfbb7949a376100e24a7add95803fd159bc587764ed78656f9c2d21",
+  "boot_sha256": "dbc27dd3a02412bd5b1ec5fb5ca9ec64fc98e355d192adbeb333750d4489980c",
+  "source": "ASUS ROGNkeyFWupdate V4.8.3.003",
+  "app_a": "OK",
+  "app_b": "OK"
+ },
+ {
+  "model": "G815LM",
+  "version": "317",
+  "file": "asus/G815LM/FGA00000.G815LM.317",
+  "sha256": "2306069d42476915452cc88b6cf6b901fb36e8d9af541ea90d034b7cfdeaaf49",
+  "boot_sha256": "523c574f579324247b7a0f5b22b7f5c22506dd5022c263173204a12c7be174c2",
+  "source": "ASUS ROGNkeyFWupdate V4.8.3.003",
+  "app_a": "OK",
+  "app_b": "OK"
+ },
+ {
+  "model": "G815LP",
+  "version": "214",
+  "file": "asus/G815LP/FGA00000.G815LP.214",
+  "sha256": "a8f2045e8c0fb7d37d8339237b110f9e012b9128c700a58e46fde95016cd1507",
+  "boot_sha256": "dbc27dd3a02412bd5b1ec5fb5ca9ec64fc98e355d192adbeb333750d4489980c",
+  "source": "ASUS ROGNkeyFWupdate V4.8.3.003",
+  "app_a": "OK",
+  "app_b": "OK"
+ },
+ {
+  "model": "G815LP",
+  "version": "317",
+  "file": "asus/G815LP/FGA00000.G815LP.317",
+  "sha256": "095bee978fb032b0463713bb8dbb6bae22100bd24cbea8cca53c077187ce20ec",
+  "boot_sha256": "523c574f579324247b7a0f5b22b7f5c22506dd5022c263173204a12c7be174c2",
+  "source": "ASUS ROGNkeyFWupdate V4.8.3.003",
+  "app_a": "OK",
+  "app_b": "OK"
+ },
+ {
+  "model": "G815LR",
+  "version": "214",
+  "file": "asus/G815LR/FGA00000.G815LR.214",
+  "sha256": "d0f3869e6023920c10f141ea3cbc42d4983a34283eb3e5307d462e0026a44a8c",
+  "boot_sha256": "dbc27dd3a02412bd5b1ec5fb5ca9ec64fc98e355d192adbeb333750d4489980c",
+  "source": "ASUS ROGNkeyFWupdate V4.8.3.003",
+  "app_a": "OK",
+  "app_b": "OK"
+ },
+ {
+  "model": "G815LR",
+  "version": "317",
+  "file": "asus/G815LR/FGA00000.G815LR.317",
+  "sha256": "afd5c1e587d13c504d00ef001ce84d7633d241fd4fb826a3e0b3ab7386371da0",
+  "boot_sha256": "523c574f579324247b7a0f5b22b7f5c22506dd5022c263173204a12c7be174c2",
+  "source": "ASUS ROGNkeyFWupdate V4.8.3.003",
+  "app_a": "OK",
+  "app_b": "OK"
+ },
+ {
+  "model": "G815LW",
+  "version": "214",
+  "file": "asus/G815LW/FGA00000.G815LW.214",
+  "sha256": "f0ad39ebfc70d9f249c44a4bbae848d774fa8ac684d14bf0190f5ea63f3e4843",
+  "boot_sha256": "dbc27dd3a02412bd5b1ec5fb5ca9ec64fc98e355d192adbeb333750d4489980c",
+  "source": "ASUS ROGNkeyFWupdate V4.8.3.003",
+  "app_a": "OK",
+  "app_b": "OK"
+ },
+ {
+  "model": "G815LW",
+  "version": "317",
+  "file": "asus/G815LW/FGA00000.G815LW.317",
+  "sha256": "2a911577cea5555edd6c4eb268868343af559a396f63575d0a057195b735b89c",
+  "boot_sha256": "523c574f579324247b7a0f5b22b7f5c22506dd5022c263173204a12c7be174c2",
+  "source": "ASUS ROGNkeyFWupdate V4.8.3.003",
+  "app_a": "OK",
+  "app_b": "OK"
+ },
+ {
+  "model": "G834JY",
+  "version": "315",
+  "file": "asus/G834JY/FGA00000.G834JY.315",
+  "sha256": "cce18de4acfda516297602c5ad641ccde7698b573e76d9c3bc469a595a6024b9",
+  "boot_sha256": "86265818f89669e81de93d26115a726e3a5d6c33eaca82d18dd0b684e6c2e31a",
+  "source": "ASUS ROGNkeyFWupdate V3.8.3.007",
+  "app_a": "OK",
+  "app_b": "OK"
+ },
+ {
+  "model": "G834JZ",
+  "version": "315",
+  "file": "asus/G834JZ/FGA00000.G834JZ.315",
+  "sha256": "3c4c0ade1a2064d2bfdcff6ac2c5e995cb4d867a5c5533903e25573fff767d49",
+  "boot_sha256": "86265818f89669e81de93d26115a726e3a5d6c33eaca82d18dd0b684e6c2e31a",
+  "source": "ASUS ROGNkeyFWupdate V3.8.3.007",
+  "app_a": "OK",
+  "app_b": "OK"
+ },
+ {
+  "model": "G835LR",
+  "version": "317",
+  "file": "asus/G835LR/FGA00000.G835LR.317",
+  "sha256": "d389f7f863299d6a75ad793b786219709c32fe86cede6ed1f2e6eb349d1a49d0",
+  "boot_sha256": "523c574f579324247b7a0f5b22b7f5c22506dd5022c263173204a12c7be174c2",
+  "source": "ASUS ROGNkeyFWupdate V4.8.3.003",
+  "app_a": "OK",
+  "app_b": "OK"
+ },
+ {
+  "model": "G835LW",
+  "version": "317",
+  "file": "asus/G835LW/FGA00000.G835LW.317",
+  "sha256": "8fa6444c1876b28f25b8b133aec758855ea2357af8c10452534f9fd46ac7e89a",
+  "boot_sha256": "523c574f579324247b7a0f5b22b7f5c22506dd5022c263173204a12c7be174c2",
+  "source": "ASUS ROGNkeyFWupdate V4.8.3.003",
+  "app_a": "OK",
+  "app_b": "OK"
+ },
+ {
+  "model": "G835LX",
+  "version": "317",
+  "file": "asus/G835LX/FGA00000.G835LX.317",
+  "sha256": "67684cd38c219e0c9ef2dbc3ebfcea953dccc444e54ac5f4db8def3650e87f5f",
+  "boot_sha256": "523c574f579324247b7a0f5b22b7f5c22506dd5022c263173204a12c7be174c2",
+  "source": "ASUS ROGNkeyFWupdate V4.8.3.003",
+  "app_a": "OK",
+  "app_b": "OK"
+ },
+ {
+  "model": "GU605",
+  "version": "415",
+  "file": "GU605/FGA00000.GU605.415.bin",
+  "sha256": "2cba485d89716781611f12d935e2a6d0c6699226c65ea6881f5ef52c0baa7dc7",
+  "boot_sha256": "27ea26d96fb99596e02c32c2ebc29b9da323068e6df689cc0b549c3e6c9a2f5f",
+  "source": "dump from a real laptop",
+  "app_a": "OK",
+  "app_b": "BAD"
+ }
 ]

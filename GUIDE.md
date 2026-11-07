@@ -51,7 +51,7 @@ on Linux: `sudo itefix fix`
 
 the program will:
 1. read the keyboard chip and save a copy into your user folder (file `itefix-backup-...bin`)
-2. decide what to write: your own firmware if it's still fine, or a clean one from this project if there is one for your model
+2. decide what to write: your own firmware if it's still fine, or a clean one from this project. there is one for 47 ROG Strix models (G614, G615, G634, G635, G713, G733, G814, G815, G834, G835) and the Zephyrus G16 GU605
 3. ask for permission. type **`YES`** in capitals and press Enter
 
 while it writes (less than a minute): **don't close the lid, don't turn it off, don't pull the charger.**

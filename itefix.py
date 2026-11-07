@@ -716,21 +716,45 @@ def fetch(url):
         return r.read()
 
 
-def repo_dump_for(model, get=fetch):
-    """look up a clean dump for this model in firmware/index.json on GitHub"""
+def repo_dump_for(img, model, get=fetch):
+    """pick a clean firmware for this chip from firmware/index.json on GitHub.
+    same model, and the bootloader + ISP block of the file must match the chip
+    (ASUS changed the bootloader between some versions), newest version first."""
     import json
+    import re
     try:
         index = json.loads(get(FW_BASE + "index.json"))
     except Exception as e:
-        say(f"  could not download the dump list ({e}). check the internet connection.")
+        say(f"  could not download the firmware list ({e}). check the internet connection.")
         return None, None
-    for entry in index:
-        if model and model.upper() == entry["model"].upper():
-            say(f"  found a clean dump for {entry['model']} (firmware .{entry['version']}), downloading ...")
+    models = {e["model"].upper() for e in index}
+    want = model.upper() if model and model.upper() in models else None
+    if not want:
+        tokens = set(re.split(r"[^A-Z0-9]+", model_name().upper()))
+        want = next((m for m in sorted(models, key=len, reverse=True) if m in tokens), None)
+    if not want:
+        return None, None
+    boot = hashlib.sha256(img[:0x2000]).hexdigest()
+    cands = [e for e in index if e["model"].upper() == want and e.get("app_a", "OK") == "OK"]
+    cands.sort(key=lambda e: (e.get("boot_sha256") != boot, -int(e["version"])))
+    for entry in cands:
+        say(f"  trying {entry['model']} firmware .{entry['version']} ({entry.get('source', '')}) ...")
+        try:
             data = get(FW_BASE + entry["file"])
-            if hashlib.sha256(data).hexdigest() != entry["sha256"]:
-                die("downloaded dump is damaged (sha256 mismatch), try again later.")
-            return data, entry
+        except Exception as e:
+            say(f"    download failed ({e})")
+            continue
+        if hashlib.sha256(data).hexdigest() != entry["sha256"]:
+            say("    downloaded file is damaged (sha256 mismatch), skipping")
+            continue
+        ref, _ = load_image_bytes(data)
+        bad = [o for o in list(range(0, 0x2000, SECTOR)) + list(range(*ISP_BLOCK, SECTOR))
+               if (c := leak_class(img[o:o + SECTOR], ref[o:o + SECTOR])) and c[0] == "other"]
+        if bad:
+            say("    its bootloader is a different build than the one on your chip, skipping")
+            continue
+        say("    bootloader matches your chip, using this one")
+        return data, entry
     return None, None
 
 
@@ -755,16 +779,16 @@ def run_fix(chip, yes, get=fetch, backup=True):
         ref, allow = img, False
     else:
         say(f"  your own app A is damaged. looking for a clean dump of {model or 'your model'} in the repo ...")
-        data, entry = repo_dump_for(model, get)
+        data, entry = repo_dump_for(img, model, get)
         if data is None:
             die(f"no clean dump for {model or 'this model'} yet. nothing was written. open an issue on "
                 f"https://github.com/{REPO} with the text above, maybe someone can share one.", 4)
         ref, _ = load_image_bytes(data)
         if not find_descriptor(ref):
             die("the downloaded dump has an unknown layout, refusing.", 4)
-        allow = entry["version"] != version
-        if allow:
-            say(f"  your chip has firmware .{version}, the clean dump is .{entry['version']}. it will be written over.")
+        allow = True                          # verified file: same model, bootloader matches the chip
+        if entry["version"] != version:
+            say(f"  your chip has firmware .{version}, this file is .{entry['version']}. it will be written over.")
 
     chip.writable = set(slot_sectors(d["slots"][0]))
     sectors = _plan(chip, ref, d, "A", allow_changes=allow)
@@ -947,11 +971,20 @@ def cmd_selftest(a):
         ref2 = bytes(fixed)
         broken[0x2000:0x2002] = ref2[0x2000:0x2002]
         sim4 = SimChip(broken)
-        idx = json.dumps([{"model": "TEST", "version": "415", "file": "TEST/x.bin",
-                           "sha256": hashlib.sha256(ref2).hexdigest()}]).encode()
-        get = lambda url: idx if url.endswith("index.json") else ref2
+        other_boot = bytearray(ref2)
+        other_boot[0x900] ^= 0x5A             # newer version with a different bootloader build
+        other_boot = bytes(other_boot)
+        boot_hash = hashlib.sha256(bytes(broken[:0x2000])).hexdigest()
+        idx = json.dumps([
+            {"model": "TEST", "version": "999", "file": "TEST/new.bin", "boot_sha256": boot_hash,
+             "sha256": hashlib.sha256(other_boot).hexdigest()},
+            {"model": "TEST", "version": "415", "file": "TEST/x.bin", "boot_sha256": boot_hash,
+             "sha256": hashlib.sha256(ref2).hexdigest()}]).encode()
+        files = {"TEST/new.bin": other_boot, "TEST/x.bin": ref2}
+        get = lambda url: idx if url.endswith("index.json") else files[url.split("firmware/")[1]]
         assert run_fix(Chip(transport=sim4), yes=True, get=get, backup=False) == 0
         assert bytes(sim4.mem[0x2000:0x1D800]) == ref2[0x2000:0x1D800]
+        assert bytes(sim4.mem[:0x2000]) == bytes(broken[:0x2000])
     finally:
         globals()["say"] = old
     say("selftest OK: leaks repaired, bootloader and ISP block never touched, foreign data refused, fix works both ways")
